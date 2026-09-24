@@ -48,7 +48,7 @@ API mode sends the question and a small set of passages to the configured OpenAI
 
 The backend then checks every quote against the retrieved passage. A missing source or invented quote makes the request fail. Even a perfectly copied quote can be irrelevant or misleading out of context, so this check is evidence checking, not a guarantee of correctness.
 
-To enable API mode, set `OPENAI_API_KEY` and `OPENAI_MODEL` in `projects/.env`, then restart Source Notes. Use a model that supports the Responses API and Structured Outputs. Add the current input and output prices per million tokens if you want a cost estimate. Blank prices show an unknown cost. Estimates do not account for every possible pricing rule, such as cached-token discounts.
+To enable API mode, set `OPENAI_API_KEY` and `OPENAI_MODEL` in `.env`, then restart Source Notes. Use a model that supports the Responses API and Structured Outputs. Add the current input and output prices per million tokens if you want a cost estimate. Blank prices show an unknown cost. Estimates do not account for every possible pricing rule, such as cached-token discounts.
 
 Only text you choose to search in API mode is sent to OpenAI. The demo documents are safe sample material. Use documents you have permission to send. The key stays on the backend.
 

@@ -1,7 +1,9 @@
 # Verification notes
 
-The first local verification ran on September 24, 2026 with Windows, Java 21, Python 3.12, PostgreSQL 17.11, and pgvector 0.8.6. Across the three apps, 57 tests passed. This total includes 32 HTTP/database checks and 25 Python unit checks. It is a shared-suite total, not a per-app count.
+On September 24, 2026, [GitHub Actions run 36030739505](https://github.com/Jaryn2/source-notes/actions/runs/36030739505) passed: **22 tests**, zero failures, zero errors, and zero skips. The run built the frontend and backend Docker image and ran the checks against PostgreSQL on Ubuntu. Open [the workflow](https://github.com/Jaryn2/source-notes/actions/workflows/check.yml) for later commits.
 
-The apps built successfully, and all three databases passed a dump/restore check. The original local Docker engine could not start, so the first checks used native PostgreSQL. Each standalone repo now has its own Docker workflow. GitHub Actions is the source for current container builds and the exact test count for this repo.
+The 22 checks cover local retrieval, missing answers, exact citations, repeated request keys, note review, invalid provider responses, and sample prompt-injection attempts. All eight fixed local evaluation questions passed.
 
-The screenshots show the real local app with fictional records. They document visible behavior, not an outside usability study or production traffic. Public backend hosting is not set up. No paid model call has been tested.
+The first local checks ran with Windows, Java 21, Python 3.12, PostgreSQL 17.11, and pgvector 0.8.6. Across the three apps, 57 tests passed. All three databases passed a dump/restore check. The original Windows Docker engine was unavailable; the successful container checks above ran on GitHub.
+
+The screenshots show the local app with fictional records. Jaryn reviewed the screens, and the Source Notes heading display was corrected. No outside usability study, public backend deployment, or paid model call has been completed.

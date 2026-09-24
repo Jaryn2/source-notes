@@ -6,6 +6,8 @@ Document search with exact source quotes and a note review step.
 
 [Project page and walkthrough](https://jaryn2.github.io/projects/source-notes/) · [Code guide](GUIDE.md) · [Learning guide](docs/LEARNING.md)
 
+![Source Notes local screenshot](docs/screenshots/source-notes-answer.png)
+
 ## Run it
 
 Install Python 3.12 or newer and Docker with Compose. Run these commands from this repo's root:
