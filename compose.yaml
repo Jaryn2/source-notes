@@ -1,0 +1,29 @@
+name: source-notes
+services:
+  db:
+    image: pgvector/pgvector:0.8.6-pg17-trixie
+    environment:
+      POSTGRES_USER: portfolio
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Run python scripts/setup.py first}
+      POSTGRES_DB: sourcenotes
+    volumes: [data:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U portfolio']
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  app:
+    build: .
+    environment:
+      DATABASE_URL: postgresql://portfolio:${DB_PASSWORD}@db:5432/sourcenotes
+      DEMO_PASSWORD: ${DEMO_PASSWORD:?Run python scripts/setup.py first}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-}
+      INPUT_COST_PER_MILLION: ${INPUT_COST_PER_MILLION:-}
+      OUTPUT_COST_PER_MILLION: ${OUTPUT_COST_PER_MILLION:-}
+    depends_on:
+      db:
+        condition: service_healthy
+    ports: ['127.0.0.1:5403:8000']
+volumes:
+  data:
